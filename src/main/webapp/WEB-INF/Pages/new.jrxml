@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
+<!-- 2019-01-14T13:43:11 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="new" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c70f889f-1a18-43ea-854b-2cd37e3ed30e">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Newadp"/>
+	<queryString>
+		<![CDATA[select roll_No,name, physics,chemistry,maths,(physics+chemistry+maths)as total,ROUND(((physics+chemistry+maths)/3),2)as per from st_marksheet where physics>33 and chemistry>33 and maths>33 order by per desc limit 0,10;]]>
+	</queryString>
+	<field name="roll_No" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="physics" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="chemistry" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="maths" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Long"/>
+	<field name="per" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="309" y="19" width="1" height="30" uuid="cdaf6381-4bf9-4463-9b35-a42ffeb6d44d">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Marksheet List
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="302" y="30" width="210" height="30" uuid="3c3f1afc-54cc-498d-bda8-c99aebb1e38e"/>
+				<textElement textAlignment="Center">
+					<font size="22"/>
+				</textElement>
+				<text><![CDATA[Marksheet List]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="54" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="674" y="15" width="107" height="30" uuid="4695b9c6-e9e4-4aed-b8b8-a3ea4935782f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="6" width="100" height="30" uuid="52cf7626-2132-4c1e-8b26-78d86c6b89fe"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Roll No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="6" width="100" height="30" uuid="c35e407d-b555-4417-a417-79173ae146a6"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Name
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="600" y="6" width="100" height="30" uuid="34947964-5b7b-46d6-a3cd-ca2eeebd46c9"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Maths]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="6" width="100" height="30" uuid="fbedce8d-5fc3-458f-a586-45e12d5a1024"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Physics]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="7" width="100" height="30" uuid="6fc3f702-f151-497e-97c0-a94f98f92e38"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Chemistry]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="722" y="9" width="100" height="30" uuid="3ba92e6b-3092-4143-8002-40fd6f729db3"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Percentage]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="59" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="2" width="100" height="30" uuid="11c915a1-a720-4826-bcfe-dc4423f225a9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{roll_No}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="6" width="100" height="30" uuid="591347bb-071b-4a48-9c1e-2c2c6899c600"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="8" width="100" height="30" uuid="f10cc1e3-6a25-4cf8-90be-4177163c8eff"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{physics}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="467" y="5" width="100" height="30" uuid="59a944f2-f810-42ec-8ab1-15912c08ef70"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{chemistry}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="603" y="3" width="100" height="30" uuid="c664de3a-666f-4a4d-9697-9fd5194f9d70"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{maths}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="721" y="5" width="100" height="30" uuid="5e404bee-8eac-4651-b1a9-a5b296344cfd"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{per}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="278" y="12" width="100" height="30" uuid="b16c02cc-f1a0-49a3-a256-c6da63cd2070"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="381" y="12" width="100" height="30" uuid="d55534a2-e877-4f50-9572-6f29bbc5ff81"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
